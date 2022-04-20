@@ -1,4 +1,4 @@
-package dev.mrsterner.oreganized.common.block;
+package dev.mrsterner.oreganized.api.interfaces;
 
 import com.google.common.base.Supplier;
 import com.google.common.base.Suppliers;

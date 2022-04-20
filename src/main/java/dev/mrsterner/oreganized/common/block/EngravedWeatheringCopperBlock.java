@@ -1,5 +1,6 @@
 package dev.mrsterner.oreganized.common.block;
 
+import dev.mrsterner.oreganized.api.interfaces.OOxidizable;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Oxidizable;

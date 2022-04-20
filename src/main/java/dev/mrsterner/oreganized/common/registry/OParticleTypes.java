@@ -14,6 +14,7 @@ import java.util.Map;
 public class OParticleTypes {
     private static final Map<ParticleType<?>, Identifier> PARTICLE_TYPES = new LinkedHashMap<>();
     public static final ParticleType<DefaultParticleType> DRIPPING_LEAD = register("cauldron_bubble", FabricParticleTypes.simple());
+    public static final ParticleType<DefaultParticleType> LEAD_SHRAPNEL = register("lead_shrapnel", FabricParticleTypes.simple());
 
     private static <T extends ParticleEffect> ParticleType<T> register(String name, ParticleType<T> type) {
         PARTICLE_TYPES.put(type, new Identifier(Oreganized.MODID, name));
