@@ -26,9 +26,10 @@ public class Oreganized implements ModInitializer {
 		OBlockEntityTypes.init();
 		OEntityTypes.init();
 
-		OParticleTypes.init();
 		OStatusEffects.init();
 		OPotions.init();
+
+		OParticleTypes.init();
 		OSounds.init();
 
 		LOGGER.info("Hello Fabric world!");

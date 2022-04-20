@@ -1,10 +1,7 @@
 package dev.mrsterner.oreganized.common.block;
 
 import dev.mrsterner.oreganized.common.block.entity.ExposerBlockEntity;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockEntityProvider;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.HorizontalFacingBlock;
+import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
@@ -29,7 +26,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Random;
 
-public class ExposerBlock extends HorizontalFacingBlock implements BlockEntityProvider {
+
+public class ExposerBlock extends FacingBlock implements BlockEntityProvider {
     public static final float RANGE = 16.0f;
     public static final IntProperty LEVEL = Properties.AGE_3;
     public static final int[] POWER_STATES = new int[] {0, 1, 2, 3};
@@ -156,4 +154,7 @@ public class ExposerBlock extends HorizontalFacingBlock implements BlockEntityPr
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         return this.getDefaultState().with(FACING, ctx.getPlayerLookDirection());
     }
+
+
 }
+

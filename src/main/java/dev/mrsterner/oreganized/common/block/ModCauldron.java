@@ -7,6 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.ShapeContext;
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -63,6 +64,7 @@ public class ModCauldron extends Block {
 
     @Override
     public ActionResult onUse(BlockState blockState, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult p_60508_) {
+
         ItemStack itemstack = player.getStackInHand(hand);
         if (itemstack.isEmpty()) {
             if (blockState.get(LEVEL) == 1) {
@@ -78,11 +80,14 @@ public class ModCauldron extends Block {
                 if (i == 3 && !world.isClient()) {
                     if (!player.getAbilities().creativeMode) {
                         itemstack.decrement(1);
+                        /*//TODO
                         if (itemstack.isEmpty()) {
                             player.setStackInHand(hand, new ItemStack(OObjects.MOLTEN_LEAD_BUCKET));
                         } else if (!player.getInventory().insertStack(new ItemStack(OObjects.MOLTEN_LEAD_BUCKET))) {
                             player.dropItem(new ItemStack(OObjects.MOLTEN_LEAD_BUCKET), false);
                         }
+
+                         */
                     }
                     player.incrementStat(Stats.USE_CAULDRON);
                     world.removeBlock(pos, false);

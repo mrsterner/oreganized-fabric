@@ -1,2 +1,3 @@
 accessWidener v1 named
 accessible method net/minecraft/entity/damage/DamageSource setFire ()Lnet/minecraft/entity/damage/DamageSource;
+accessible class net/minecraft/particle/DefaultParticleType

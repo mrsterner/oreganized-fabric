@@ -21,7 +21,7 @@ public class SpottedGlance extends Block {
         if (world.isWater(neighbourPos)) {
             ItemStack stack = new ItemStack(OObjects.LEAD_NUGGET, world.getRandom().nextInt(2) + 1);
             ItemScatterer.spawn((World) world, pos.getX(), pos.getY(), pos.getZ(), stack);
-            return OObjects.GLANCE.getDefaultState();
+            //TODO return OObjects.GLANCE.getDefaultState();
         }
         return super.getStateForNeighborUpdate(state, direction, neighbour, world, pos, neighbourPos);
     }
@@ -29,7 +29,7 @@ public class SpottedGlance extends Block {
     @Override
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block block, BlockPos fromPos, boolean notify) {
         if (world.isWater(fromPos)) {
-            world.setBlockState(pos, OObjects.GLANCE.getDefaultState());
+            //TODO world.setBlockState(pos, OObjects.GLANCE.getDefaultState());
             ItemStack stack = new ItemStack(OObjects.LEAD_NUGGET, world.getRandom().nextInt(2) + 1);
             ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), stack);
         }

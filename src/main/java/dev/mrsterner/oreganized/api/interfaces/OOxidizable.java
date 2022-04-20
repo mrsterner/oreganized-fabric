@@ -66,4 +66,7 @@ public interface OOxidizable extends Degradable<Oxidizable.OxidationLevel> {
     }
 
 
+
+
+
 }

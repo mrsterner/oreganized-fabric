@@ -19,9 +19,7 @@ public class CrystalGlassColoredBlock extends CrystalGlassBase implements Staina
 
     public CrystalGlassColoredBlock(Settings settings, DyeColor dyeColor) {
         super(settings);
-        if (this.color != DyeColor.LIGHT_GRAY && this.color != DyeColor.WHITE && this.color != DyeColor.YELLOW) {
-            this.setDefaultState(this.getDefaultState().with(TYPE, NORMAL));
-        }
+        this.setDefaultState(getStateManager().getDefaultState().with(TYPE, NORMAL));
     }
 
     @Override
