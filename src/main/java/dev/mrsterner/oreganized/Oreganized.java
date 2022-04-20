@@ -1,5 +1,6 @@
 package dev.mrsterner.oreganized;
 
+import dev.mrsterner.oreganized.common.registry.*;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
@@ -21,6 +22,14 @@ public class Oreganized implements ModInitializer {
 	public void onInitialize() {
 		AutoConfig.register(OConfig.class, GsonConfigSerializer::new);
 		config = AutoConfig.getConfigHolder(OConfig.class).getConfig();
+		OObjects.init();
+		OBlockEntityTypes.init();
+		OEntityTypes.init();
+
+		OParticleTypes.init();
+		OStatusEffects.init();
+		OPotions.init();
+		OSounds.init();
 
 		LOGGER.info("Hello Fabric world!");
 	}

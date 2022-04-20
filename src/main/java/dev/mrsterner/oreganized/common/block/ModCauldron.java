@@ -7,7 +7,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.ShapeContext;
-import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -27,13 +26,11 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.CollisionView;
 import net.minecraft.world.World;
 
 
 import java.util.Random;
 
-import static net.minecraft.util.function.BooleanBiFunction.ONLY_FIRST;
 
 public class ModCauldron extends Block {
     public static final IntProperty LEVEL = Properties.AGE_3;
@@ -42,7 +39,7 @@ public class ModCauldron extends Block {
             VoxelShapes.union(createCuboidShape(0.0D, 0.0D, 4.0D, 16.0D, 3.0D, 12.0D),
                     createCuboidShape(4.0D, 0.0D, 0.0D, 12.0D, 3.0D, 16.0D),
                     createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 3.0D, 14.0D),
-                    INSIDE), (VoxelShape) ONLY_FIRST);
+                    INSIDE));
     public ModCauldron(FabricBlockSettings fabricBlockSettings) {
         super(fabricBlockSettings.requiresTool().strength(2.0F).nonOpaque());
         setDefaultState(this.getDefaultState().with(LEVEL, 1));
@@ -71,7 +68,7 @@ public class ModCauldron extends Block {
             if (blockState.get(LEVEL) == 1) {
                 world.removeBlock(pos, false);
                 world.setBlockState(pos, Blocks.CAULDRON.getDefaultState());
-                world.spawnEntity(new ItemEntity(world, pos.getX(), pos.getY() + 0.5D, pos.getZ(), OObjects.LEAD_BLOCK.asItem().getDefaultStack()));
+                //TODO world.spawnEntity(new ItemEntity(world, pos.getX(), pos.getY() + 0.5D, pos.getZ(), OObjects.LEAD_BLOCK.asItem().getDefaultStack()));
                 return ActionResult.success(world.isClient());
             } else return ActionResult.PASS;
         } else {

@@ -40,7 +40,6 @@ public class SilverBlock extends Block {
     @Override
     public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         int dist = 8;
-
         List<Entity> list = world.getOtherEntities((Entity) null,
                 new Box(pos.getX() + RANGE, pos.getY() + RANGE, pos.getZ() + RANGE,
                         pos.getX() - RANGE, pos.getY() - RANGE, pos.getZ() - RANGE), (Entity entity) -> entity instanceof LivingEntity);
@@ -52,10 +51,6 @@ public class SilverBlock extends Block {
                 double distance = Math.sqrt(living.squaredDistanceTo(pos.getX(), pos.getY(), pos.getZ()));
                 if (((int) Math.ceil(distance / (RANGE / 8))) < dist) {
                     dist = (int) Math.ceil(distance / (RANGE / 8));
-
-                    /*if (dist > 7) {
-                        dist = 7;
-                    }*/
                 }
             }
         }

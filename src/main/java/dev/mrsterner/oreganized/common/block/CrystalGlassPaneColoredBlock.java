@@ -1,9 +1,8 @@
 package dev.mrsterner.oreganized.common.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Stainable;
+import net.minecraft.block.*;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.DyeColor;
@@ -12,17 +11,19 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 
-public class CrystalGlassPaneColoredBlock extends CrystalGlassPaneBase implements Stainable {
+public class CrystalGlassPaneColoredBlock extends PaneBlock implements Stainable {
     public static final IntProperty TYPE = IntProperty.of("type", 0, 3);
     public static final int NORMAL = 0, ROTATED = 1, INNER = 2, OUTER = 3;
     final DyeColor color;
 
-    public CrystalGlassPaneColoredBlock(Settings settings, DyeColor color) {
-        super(settings);
+    public CrystalGlassPaneColoredBlock(DyeColor color) {
+        super(AbstractBlock.Settings.of(Material.GLASS)
+                .strength(0.3F)
+                .sounds(BlockSoundGroup.GLASS)
+                .nonOpaque());
         this.color = color;
-        if (this.color != DyeColor.LIGHT_GRAY && this.color != DyeColor.WHITE && this.color != DyeColor.YELLOW) {
-            this.setDefaultState(this.getDefaultState().with(TYPE, NORMAL));
-        }
+        this.setDefaultState(getStateManager().getDefaultState()
+                .with(TYPE, NORMAL));
     }
 
     @Override

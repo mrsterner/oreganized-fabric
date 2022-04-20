@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Oreganized",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "Fabric port by MrSterner of Oreganized",
   "authors": [
     "MrSterner"
   ],
@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "dev.mrsterner.oreganized.Oreganized"
+    ],
+    "client": [
+      "dev.mrsterner.oreganized.OreganizedClient"
     ]
   },
   "mixins": [

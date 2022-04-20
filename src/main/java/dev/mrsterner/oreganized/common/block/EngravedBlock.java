@@ -11,12 +11,12 @@ public class EngravedBlock extends Block {
 
     public EngravedBlock(Settings settings) {
         super(settings);
+        setDefaultState(getStateManager().getDefaultState().with(ISZAXISDOWN, false).with(ISZAXISUP, false));
     }
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(ISZAXISDOWN, ISZAXISUP);
-        super.appendProperties(builder);
     }
 
 }

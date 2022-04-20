@@ -22,13 +22,13 @@ public class ElectrumArmorItem extends ArmorItem {
         @Override
         public int getProtectionAmount(EquipmentSlot slot) {
             int[] defensePerSlot = {3, 6, 8, 3};
-            return defensePerSlot[slot.ordinal()];
+            return defensePerSlot[slot.getEntitySlotId()];
         }
 
 
         @Override
         public int getDurability(EquipmentSlot slot) {
-            return HEALTH_PER_SLOT[slot.ordinal()] * 37;
+            return HEALTH_PER_SLOT[slot.getEntitySlotId()] * 37;
         }
 
         @Override

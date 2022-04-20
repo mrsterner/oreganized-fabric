@@ -12,6 +12,7 @@ public class ExposerBlockEntity extends BlockEntity {
     }
 
     public static <T extends BlockEntity> void tick(World world, BlockPos blockPos, BlockState state, T t) {
-
+        if (world == null) return;
+        if (world.isClient()) return;
     }
 }

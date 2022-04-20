@@ -31,7 +31,6 @@ public class CrystalGlassColoredBlock extends CrystalGlassBase implements Staina
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        super.appendProperties(builder);
         builder.add(TYPE);
     }
 

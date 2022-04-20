@@ -22,6 +22,7 @@ public class StunnedEffect extends StatusEffect {
     public boolean canApplyUpdateEffect(int pDuration, int pAmplifier) {
         return true;
     }
+
     /*TODO Mixin
     @SubscribeEvent
     public static void onInputUpdate(MovementInputUpdateEvent event) {

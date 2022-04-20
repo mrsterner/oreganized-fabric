@@ -51,7 +51,7 @@ public class ShrapnelBombBlock extends TntBlock {
         if (!world.isClient()) {
             PrimedShrapnelBomb primedbomb = new PrimedShrapnelBomb(world, (double)pPos.getX() + 0.5D, (double)pPos.getY(), (double)pPos.getZ() + 0.5D, pEntity);
             world.spawnEntity(primedbomb);
-            world.playSound((PlayerEntity) null, primedbomb.getX(), primedbomb.getY(), primedbomb.getZ(), SoundEvents.ENTITY_TNT_PRIMED, SoundCategory.BLOCKS, 1.0F, 1.0F);
+            world.playSound(null, primedbomb.getX(), primedbomb.getY(), primedbomb.getZ(), SoundEvents.ENTITY_TNT_PRIMED, SoundCategory.BLOCKS, 1.0F, 1.0F);
             world.emitGameEvent(pEntity, GameEvent.PRIME_FUSE, pPos);
         }
     }

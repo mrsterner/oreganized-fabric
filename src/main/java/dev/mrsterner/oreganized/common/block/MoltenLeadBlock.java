@@ -3,7 +3,6 @@ package dev.mrsterner.oreganized.common.block;
 import dev.mrsterner.oreganized.common.registry.ODamageSource;
 import dev.mrsterner.oreganized.common.registry.OObjects;
 import dev.mrsterner.oreganized.common.registry.OParticleTypes;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -31,9 +30,10 @@ import java.util.Optional;
 import java.util.Random;
 
 public class MoltenLeadBlock extends Block implements FluidDrainable {
-    private static final BooleanProperty MOVING = BooleanProperty.of("isMoving");
-    public MoltenLeadBlock(FabricBlockSettings fabricBlockSettings) {
-        super(fabricBlockSettings.strength( -1.0F, 3600000.0F).requiresTool().dropsNothing());
+    private static final BooleanProperty MOVING = BooleanProperty.of("ismoving");
+    public MoltenLeadBlock() {
+        super(AbstractBlock.Settings.of((new Material.Builder(MapColor.PURPLE )).build()).strength( -1.0F, 3600000.0F).requiresTool().dropsNothing());
+        setDefaultState(getStateManager().getDefaultState().with(MOVING, false));
     }
 
     @Override
@@ -52,7 +52,6 @@ public class MoltenLeadBlock extends Block implements FluidDrainable {
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block block, BlockPos fromPos, boolean notify) {
         if(world.getFluidState(fromPos).isIn( FluidTags.WATER )){
             world.setBlockState(pos ,OObjects.LEAD_BLOCK.getDefaultState());
-
             world.syncWorldEvent(1501 , pos , 0 );
         }
         super.neighborUpdate(state, world, pos, block, fromPos, notify);
