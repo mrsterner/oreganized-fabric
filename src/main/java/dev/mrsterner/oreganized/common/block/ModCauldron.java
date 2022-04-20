@@ -70,7 +70,7 @@ public class ModCauldron extends Block {
             if (blockState.get(LEVEL) == 1) {
                 world.removeBlock(pos, false);
                 world.setBlockState(pos, Blocks.CAULDRON.getDefaultState());
-                //TODO world.spawnEntity(new ItemEntity(world, pos.getX(), pos.getY() + 0.5D, pos.getZ(), OObjects.LEAD_BLOCK.asItem().getDefaultStack()));
+                world.spawnEntity(new ItemEntity(world, pos.getX(), pos.getY() + 0.5D, pos.getZ(), OObjects.LEAD_BLOCK.asItem().getDefaultStack()));
                 return ActionResult.success(world.isClient());
             } else return ActionResult.PASS;
         } else {
@@ -80,14 +80,12 @@ public class ModCauldron extends Block {
                 if (i == 3 && !world.isClient()) {
                     if (!player.getAbilities().creativeMode) {
                         itemstack.decrement(1);
-                        /*//TODO
                         if (itemstack.isEmpty()) {
                             player.setStackInHand(hand, new ItemStack(OObjects.MOLTEN_LEAD_BUCKET));
                         } else if (!player.getInventory().insertStack(new ItemStack(OObjects.MOLTEN_LEAD_BUCKET))) {
                             player.dropItem(new ItemStack(OObjects.MOLTEN_LEAD_BUCKET), false);
                         }
 
-                         */
                     }
                     player.incrementStat(Stats.USE_CAULDRON);
                     world.removeBlock(pos, false);

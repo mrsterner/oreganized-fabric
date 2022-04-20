@@ -1,7 +1,6 @@
 package dev.mrsterner.oreganized.client.particle;
 
 
-import dev.mrsterner.oreganized.common.registry.OObjects;
 import dev.mrsterner.oreganized.common.registry.OParticleTypes;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

@@ -21,7 +21,7 @@ import static net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSetting
 
 public class OObjects {
 
-    private static final Map<Block, Identifier> BLOCKS = new LinkedHashMap<>();
+    public static final Map<Block, Identifier> BLOCKS = new LinkedHashMap<>();
     private static final Map<Item, Identifier> ITEMS = new LinkedHashMap<>();
 
 
@@ -38,7 +38,6 @@ public class OObjects {
     public static final Item ELECTRUM_NUGGET = register("electrum_nugget", new Item(gen()));
     public static final Item NETHERITE_NUGGET = register("netherite_nugget", new Item(gen()));
 
-    //public static final Item MOLTEN_LEAD_BUCKET = register("molten_lead_bucket", new PowderSnowBucketItem(OObjects.MOLTEN_LEAD_BLOCK, SoundEvents.ITEM_BUCKET_EMPTY_LAVA, gen()));
 
 
     public static final Item SILVER_MIRROR = register("silver_mirror", new SilverMirrorItem(gen()));
@@ -47,7 +46,6 @@ public class OObjects {
     public static final Item MUSIC_DISC_18_ITEM = register("music_disc_18", new OMusicDisc(14, MUSIC_DISC_18, gen()));
     public static final Item MUSIC_DISC_SHULK_ITEM = register("music_disc_shulk", new OMusicDisc(15, MUSIC_DISC_SHULK, gen()));
 
-    /*
     public static final Block SILVER_ORE = register("silver_ore", new Block(copyOf(Blocks.GOLD_ORE)), true);
     public static final Block DEEPSLATE_SILVER_ORE = register("deepslate_silver_ore", new Block(copyOf(Blocks.DEEPSLATE_GOLD_ORE)), true);
 
@@ -81,7 +79,6 @@ public class OObjects {
     public static final Block LEAD_CAULDRON = register("cauldron", new ModCauldron(copyOf(GLANCE)), true);
 
 
-     */
 
 
     public static final Block ENGRAVED_NETHER_BRICKS = register("engraved_nether_bricks", new EngravedBlock(copyOf(Blocks.NETHER_BRICKS).strength(2.0F, 6.0F)), true);
@@ -106,7 +103,7 @@ public class OObjects {
     public static final Block ENGRAVED_PRISMARINE_BRICKS = register("engraved_prismarine_bricks", new EngravedBlock(copyOf(Blocks.PRISMARINE_BRICKS)), true);
     public static final Block ENGRAVED_QUARTZ_BRICKS = register("engraved_quartz_bricks", new EngravedBlock(copyOf(Blocks.QUARTZ_BRICKS)), true);
     public static final Block ENGRAVED_STONE_BRICKS = register("engraved_stone_bricks", new EngravedBlock(copyOf(Blocks.STONE_BRICKS)), true);
-    //TODO public static final Block ENGRAVED_GLANCE_BRICKS = register("engraved_glance_bricks", new EngravedBlock(copyOf(GLANCE_BRICKS)), true);
+    public static final Block ENGRAVED_GLANCE_BRICKS = register("engraved_glance_bricks", new EngravedBlock(copyOf(GLANCE_BRICKS)), true);
 
 
 
@@ -168,7 +165,8 @@ public class OObjects {
     public static final FallingBlock WAXED_BLACK_CONCRETE_POWDER = register("waxed_black_concrete_powder",  new FallingBlock(FabricBlockSettings.of(Material.SOIL, DyeColor.BLACK).strength(0.5F).sounds(BlockSoundGroup.SAND)), true);
     //Redstone Components
     public static final Block EXPOSER = register("exposer", new ExposerBlock(FabricBlockSettings.copy(Blocks.OBSERVER)), true);
-    //TODO public static final Block SHRAPNEL_BOMB = register("shrapnel_bomb", new ShrapnelBombBlock(FabricBlockSettings.copy(Blocks.TNT)), true);
+    public static final Block SHRAPNEL_BOMB = register("shrapnel_bomb", new ShrapnelBombBlock(FabricBlockSettings.copy(Blocks.TNT)), true);
+
 
     public static final Item ELECTRUM_SWORD = register("electrum_sword", new SwordItem(OMaterials.ELECTRUM, 3, -2.6F, new Item.Settings().group(ItemGroup.COMBAT).maxCount(1)));
 
@@ -185,6 +183,7 @@ public class OObjects {
     public static final Item ELECTRUM_BOOTS = register("electrum_boots", new ElectrumArmorItem(EquipmentSlot.FEET, new Item.Settings().group(ItemGroup.COMBAT)));
 
 
+    public static final Item MOLTEN_LEAD_BUCKET = register("molten_lead_bucket", new PowderSnowBucketItem(MOLTEN_LEAD_BLOCK, SoundEvents.ITEM_BUCKET_EMPTY_LAVA, gen()));
 
     public static <T extends Block> T register(String name, T block, boolean createItem) {
         BLOCKS.put(block, new Identifier(Oreganized.MODID, name));

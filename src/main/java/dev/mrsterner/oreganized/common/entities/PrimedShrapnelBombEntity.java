@@ -13,15 +13,13 @@ import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 import org.jetbrains.annotations.Nullable;
 
-public class PrimedShrapnelBomb extends TntEntity {
-    @Nullable
-    private LivingEntity causingEntity;
-    public PrimedShrapnelBomb(EntityType<? extends PrimedShrapnelBomb> entityType, World world) {
+public class PrimedShrapnelBombEntity extends TntEntity {
+    public PrimedShrapnelBombEntity(EntityType<? extends PrimedShrapnelBombEntity> entityType, World world) {
         super(entityType, world);
     }
 
-    public PrimedShrapnelBomb(World world, double x, double y, double z, @Nullable LivingEntity livingEntity) {
-        this(OEntityTypes.SHRAPNEL_BOMB_ENTITY, world);
+    public PrimedShrapnelBombEntity(World world, double x, double y, double z, @Nullable LivingEntity livingEntity) {
+        super(OEntityTypes.SHRAPNEL_BOMB_ENTITY, world);
         this.setPos(x, y, z);
         double d0 = world.random.nextDouble() * (double)((float)Math.PI * 2F);
         this.setVelocity(-Math.sin(d0) * 0.02D, (double)0.2F, -Math.cos(d0) * 0.02D);
@@ -29,7 +27,6 @@ public class PrimedShrapnelBomb extends TntEntity {
         this.prevX = x;
         this.prevY = y;
         this.prevZ = z;
-        this.causingEntity = livingEntity;
     }
 
     @Override
@@ -49,7 +46,7 @@ public class PrimedShrapnelBomb extends TntEntity {
         if (i <= 0) {
             this.discard();
             if (!this.world.isClient) {
-                this.explode();
+                this.exploder();
             }
         } else {
             this.updateWaterState();
@@ -60,7 +57,8 @@ public class PrimedShrapnelBomb extends TntEntity {
 
     }
 
-    protected void explode() {
+
+    protected void exploder() {
         this.world.createExplosion(this, this.getX(), this.getY() + 0.0625D, this.getZ(), 6.0F, Explosion.DestructionType.NONE);
         if(!this.world.isClient()) ((ServerWorld)this.world).spawnParticles((ParticleEffect) OParticleTypes.LEAD_SHRAPNEL, this.getX(), this.getY() +0.0625D , this.getZ() , 100, 0.0D , 0.0D , 0.0D, 5 );
 
@@ -86,6 +84,4 @@ public class PrimedShrapnelBomb extends TntEntity {
             }
         }
     }
-
-
 }

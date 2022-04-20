@@ -40,7 +40,7 @@ public class MoltenLeadBlock extends Block implements FluidDrainable {
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         if(world.isWater(neighborPos)){
             world.syncWorldEvent( 1501 , pos , 0);
-            //TODO return OObjects.LEAD_BLOCK.getDefaultState();
+            return OObjects.LEAD_BLOCK.getDefaultState();
         }
         if(direction == Direction.DOWN){
             world.createAndScheduleBlockTick(pos , this , 30);
@@ -51,7 +51,7 @@ public class MoltenLeadBlock extends Block implements FluidDrainable {
     @Override
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block block, BlockPos fromPos, boolean notify) {
         if(world.getFluidState(fromPos).isIn( FluidTags.WATER )){
-            //TODO world.setBlockState(pos ,OObjects.LEAD_BLOCK.getDefaultState());
+            world.setBlockState(pos ,OObjects.LEAD_BLOCK.getDefaultState());
             world.syncWorldEvent(1501 , pos , 0 );
         }
         super.neighborUpdate(state, world, pos, block, fromPos, notify);
@@ -77,7 +77,7 @@ public class MoltenLeadBlock extends Block implements FluidDrainable {
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         if(((EntityShapeContext) context).getEntity() != null){
-            //TODO return context.isHolding(Items.BUCKET) || context.isHolding(OObjects.MOLTEN_LEAD_BUCKET) ? VoxelShapes.fullCube() : VoxelShapes.empty();
+            return context.isHolding(Items.BUCKET) || context.isHolding(OObjects.MOLTEN_LEAD_BUCKET) ? VoxelShapes.fullCube() : VoxelShapes.empty();
         }
         return VoxelShapes.fullCube();
     }
@@ -107,8 +107,7 @@ public class MoltenLeadBlock extends Block implements FluidDrainable {
             world.syncWorldEvent(2001 , pos , Block.getRawIdFromState(state));
         }
 
-        //TODO return new ItemStack(OObjects.MOLTEN_LEAD_BUCKET, 1);
-        return null;
+        return new ItemStack(OObjects.MOLTEN_LEAD_BUCKET, 1);
     }
 
     @Override
@@ -124,7 +123,7 @@ public class MoltenLeadBlock extends Block implements FluidDrainable {
                 world.setBlockState(pos , state.with(MOVING , true ) , 3 );
             }else{
                 world.syncWorldEvent( 1501 , pos , 0 );
-                //TODO world.setBlockState(pos , OObjects.LEAD_BLOCK.getDefaultState() , 3 );
+                world.setBlockState(pos , OObjects.LEAD_BLOCK.getDefaultState() , 3 );
             }
         }else{
             if(!oldState.getFluidState().isIn(FluidTags.WATER )){
@@ -132,7 +131,7 @@ public class MoltenLeadBlock extends Block implements FluidDrainable {
                 world.createAndScheduleBlockTick( pos , this , 300 );
             }else{
                 world.syncWorldEvent( 1501 , pos , 0 );
-                //TODO world.setBlockState( pos , OObjects.LEAD_BLOCK.getDefaultState() , 3 );
+                world.setBlockState( pos , OObjects.LEAD_BLOCK.getDefaultState() , 3 );
             }
         }
     }
@@ -178,7 +177,7 @@ public class MoltenLeadBlock extends Block implements FluidDrainable {
                 || world.getBlockState(pos.down()).isIn(BlockTags.SMALL_FLOWERS)
                 || world.getBlockState(pos.down()).isIn(BlockTags.TALL_FLOWERS)){
             world.setBlockState( pos , Blocks.AIR.getDefaultState() , 67 );
-            //TODO world.setBlockState( pos.down() , OObjects.MOLTEN_LEAD_BLOCK.getDefaultState() , 67 );
+            world.setBlockState( pos.down() , OObjects.MOLTEN_LEAD_BLOCK.getDefaultState() , 67 );
         }
         super.scheduledTick(state, world, pos, random);
     }

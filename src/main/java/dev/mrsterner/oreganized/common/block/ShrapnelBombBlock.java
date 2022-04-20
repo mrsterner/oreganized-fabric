@@ -1,6 +1,6 @@
 package dev.mrsterner.oreganized.common.block;
 
-import dev.mrsterner.oreganized.common.entities.PrimedShrapnelBomb;
+import dev.mrsterner.oreganized.common.entities.PrimedShrapnelBombEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.TntBlock;
@@ -49,7 +49,7 @@ public class ShrapnelBombBlock extends TntBlock {
 
     private static void explode(World world, BlockPos pPos, @Nullable LivingEntity pEntity) {
         if (!world.isClient()) {
-            PrimedShrapnelBomb primedbomb = new PrimedShrapnelBomb(world, (double)pPos.getX() + 0.5D, (double)pPos.getY(), (double)pPos.getZ() + 0.5D, pEntity);
+            PrimedShrapnelBombEntity primedbomb = new PrimedShrapnelBombEntity(world, (double)pPos.getX() + 0.5D, (double)pPos.getY(), (double)pPos.getZ() + 0.5D, pEntity);
             world.spawnEntity(primedbomb);
             world.playSound(null, primedbomb.getX(), primedbomb.getY(), primedbomb.getZ(), SoundEvents.ENTITY_TNT_PRIMED, SoundCategory.BLOCKS, 1.0F, 1.0F);
             world.emitGameEvent(pEntity, GameEvent.PRIME_FUSE, pPos);
@@ -59,7 +59,7 @@ public class ShrapnelBombBlock extends TntBlock {
     @Override
     public void onDestroyedByExplosion(World world, BlockPos pos, Explosion explosion) {
         if (!world.isClient()) {
-            PrimedShrapnelBomb primedBomb = new PrimedShrapnelBomb(world, (double)pos.getX() + 0.5D, (double)pos.getY(), (double)pos.getZ() + 0.5D, explosion.getCausingEntity());
+            PrimedShrapnelBombEntity primedBomb = new PrimedShrapnelBombEntity(world, (double)pos.getX() + 0.5D, (double)pos.getY(), (double)pos.getZ() + 0.5D, explosion.getCausingEntity());
             int i = primedBomb.getFuse();
             primedBomb.setFuse((short)(world.random.nextInt(i / 4) + i / 8));
             world.spawnEntity(primedBomb);

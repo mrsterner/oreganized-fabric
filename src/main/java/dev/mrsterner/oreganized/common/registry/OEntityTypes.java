@@ -1,7 +1,7 @@
 package dev.mrsterner.oreganized.common.registry;
 
 import dev.mrsterner.oreganized.Oreganized;
-import dev.mrsterner.oreganized.common.entities.PrimedShrapnelBomb;
+import dev.mrsterner.oreganized.common.entities.PrimedShrapnelBombEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityDimensions;
@@ -16,7 +16,7 @@ import java.util.Map;
 public class OEntityTypes {
     private static final Map<EntityType<?>, Identifier> ENTITY_TYPES = new LinkedHashMap<>();
 
-    public static EntityType<PrimedShrapnelBomb> SHRAPNEL_BOMB_ENTITY = register("bullet", PrimedShrapnelBomb::new);;
+    public static EntityType<PrimedShrapnelBombEntity> SHRAPNEL_BOMB_ENTITY = register("shrapnel", PrimedShrapnelBombEntity::new);;
 
 
     private static <T extends Entity> EntityType<T> register(String id, EntityType.EntityFactory<T> factory) {
