@@ -3,15 +3,9 @@ package dev.mrsterner.oreganized.common.registry;
 
 import dev.mrsterner.oreganized.Oreganized;
 import dev.mrsterner.oreganized.mixin.BrewingRecipeRegistryAccessor;
-import net.minecraft.block.BlockState;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionUtil;
 import net.minecraft.potion.Potions;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 

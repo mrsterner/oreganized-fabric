@@ -1,7 +1,5 @@
 package dev.mrsterner.oreganized.common.item;
 
-import dev.mrsterner.oreganized.common.registry.OMaterials;
-import net.minecraft.item.Item;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.ToolMaterial;
 

@@ -3,7 +3,6 @@ package dev.mrsterner.oreganized.common.registry;
 import dev.mrsterner.oreganized.Oreganized;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;

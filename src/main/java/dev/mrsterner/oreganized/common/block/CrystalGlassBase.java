@@ -7,8 +7,6 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 
-import java.util.function.Predicate;
-
 public class CrystalGlassBase extends GlassBlock {
     public CrystalGlassBase(Settings settings) {
         super(settings
